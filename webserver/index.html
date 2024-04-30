@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <title>Game update</title>
+<head>
+<style>
+
+.container {  
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(20, 1fr); 
+  gap: 2px 2px;
+  grid-auto-flow: row;
+}
+
+.item_name {
+  grid-column-end: span 4;
+  grid-row-end: span 2;
+  background-color: rgba(224, 224, 224, 0.8);
+  text-align: center;
+  font-size: 2.5em; /* 40px/16=2.5em */
+}
+
+.item_message {
+  grid-column-end: span 15;
+  grid-row-end: span 8;
+  background-color: rgba(224, 224, 224, 0.8);
+  font-size: 1em; /* 40px/16=2.5em */
+}
+
+.item_scroll {
+    height : 300px;
+    overflow: auto;
+}
+
+.item_2_by_1 {
+  grid-column-end: span 2;
+  background-color: rgba(224, 224, 224, 0.8);
+  text-align: center;
+  font-size: 1.5em; /* 40px/16=2.5em */
+}
+.item_empty_4_by_2 {
+  grid-column-end: span 4;
+  grid-row-end: span 2;
+  text-align: center;
+  font-size: 2.5em; /* 40px/16=2.5em */
+}
+
+</style>
+<script type = "text/javascript" src="/socket.io/socket.io.js"></script>
+<script type = "text/javascript" src="/scripts/functions.js"></script>
+
+</head>
+<body>
+
+    <div class="container" id="main">
+        <!--line 1-->
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <div class="item_name" id="leftName">Home</div>
+        <div></div>
+        <div class="item_name" id="gameClock">8:00</div>
+        <div></div>
+        <div class="item_name" id="rightName">Guest</div>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+        <!--line 2-->
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+        <!--line 3-->
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <div class="item_name" id="leftScore">0</div>
+        <div></div>
+        <div class="item_name" id="shotClock">45</div>
+        <div></div>
+        <div class="item_name" id="rightScore">0</div>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+        <!--line 4-->
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+        <!--line 5-->
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <div class="item_empty_4_by_2"></div>
+        <div></div>
+        <div class="item_name" id="period">1</div>
+        <div></div>
+        <div class="item_empty_4_by_2"></div>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+        <!--line 6-->
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+        <!--line 7-->
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <div class="item_2_by_1" id="leftPenaltyNumber1"></div>
+        <div></div>
+        <div class="item_2_by_1" id="leftPenaltyTime1"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="item_2_by_1" id="rightPenaltyNumber1"></div>
+        <div></div>
+        <div class="item_2_by_1" id="rightPenaltyTime1"></div>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+        <!--line 8-->
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <div class="item_2_by_1" id="leftPenaltyNumber2"></div>
+        <div></div>
+        <div class="item_2_by_1" id="leftPenaltyTime2"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="item_2_by_1" id="rightPenaltyNumber2"></div>
+        <div></div>
+        <div class="item_2_by_1" id="rightPenaltyTime2"></div>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+
+        <!--line 9-->
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <div class="item_2_by_1" id="leftPenaltyNumber3"></div>
+        <div></div>
+        <div class="item_2_by_1" id="leftPenaltyTime3"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="item_2_by_1" id="rightPenaltyNumber3"></div>
+        <div></div>
+        <div class="item_2_by_1" id="rightPenaltyTime3"></div>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+        <!--line 10-->
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="item_2_by_1">t.o.l.</div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="item_2_by_1">t.o.l.</div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+
+        <!--line 11-->
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="item_2_by_1" id="leftTimeOut">0</div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="item_2_by_1" id="rightTimeOut">0</div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+        <!--line 12-->
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+        <script>create_kickouts("main", true)</script>
+        <div class="item_message item_scroll" id="messages"></div>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+        <script>create_kickouts("main", true)</script>
+        <div></div>
+        <script>create_kickouts("main", false); increment()</script>
+
+    </div>
+
+  <script>do_scoreboard()</script>
+  </body>
+</html>
