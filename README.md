@@ -18,7 +18,7 @@ The web-based version is limited. No viewer can connect to it. It cannot update 
 
 The Android version is also limited. It cannot update the view-only web page but other devices can connect to it to view the scoreboard. It is better to use it as a viewer. 
 
-It is strongly recommend to use the Windows version as the main application.
+It is strongly recommended to use the Windows version as the main application.
 
 ### The welcome screen
 ![Welcome screen](./images/welcome.png)
