@@ -46,12 +46,12 @@ You can also set the number of time outs and its duration.
 For instance, here, each team has two time outs for every two periods.
 Finally, you can set the duration of a penalty.
 
-#### Sound Settings
+#### Audible Signal
 
 ![Audible Signal](./images/sound_settings.png)
 A sound can be played to indicate the remaining time.
 
-#### Color Settings
+#### Colour Settings
 
 ![Color Settings](./images/colors_settings.png)
 Default colors can be changed.
