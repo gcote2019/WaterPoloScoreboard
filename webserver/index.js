@@ -1,9 +1,13 @@
 const express = require('express');
+const crypto = require('crypto');
+
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const port = process.env.PORT || 3000;
 const debug = process.env.DEBUG || 0;
+const password = process.env.PASSWORD || "";
+
 const fs = require('fs');
 const path = require('path');
 // to be fixed later
@@ -42,6 +46,14 @@ for (i = 1; i <= 3; i++) {
 	names.push('rightPenaltyTime' + i.toString());
 }
 
+console.log(password)
+if (password == "") {
+	console.log("empty")
+}
+
+let hash = crypto.createHash('sha256').update(password).digest('hex')
+hash = hash.toUpperCase();
+console.log(hash)
 
 
 // the last message for each key
@@ -58,20 +70,23 @@ io.on('connection', (socket) => {
 	names.forEach(function (name) {
 		log(2, name);
 		socket.on(name, msg => {
-			log(1, name);
-			log(1, msg);
-			if (name == 'messages') {
-				messages.push(msg);
-				if (messages.length > 50) {
-					messages.shift();
+			var obj = JSON.parse(msg)
+			if (obj.hash == hash) {
+				log(1, name);
+				log(1, msg);
+				if (name == 'messages') {
+					messages.push(msg);
+					if (messages.length > 50) {
+						messages.shift();
+					}
 				}
+				else
+				{
+					keyValues[name] = msg;
+				}
+				io.emit(name, msg);
+				log(2, "emitted");
 			}
-			else
-			{
-				keyValues[name] = msg;
-			}
-			io.emit(name, msg);
-			log(2, "emitted");
 		});
 
 	});

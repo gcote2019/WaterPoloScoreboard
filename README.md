@@ -78,7 +78,10 @@ Make sure that the prefix http:// or https:// is used.
 
 Game events like goals will be shown on the web page. You can optionnally provide your preferred terms.
 
+#### Language
 
+![Language](./images/language.png)
+The display can be in english or in french.
 
 ### Team names
 If you double-click on a name, you can start editing it. Press Enter to apply.
@@ -184,7 +187,15 @@ Here's the recipe for Windows but it is quite similar for other OSes. You don't 
      *  npm install socket.io
  
 6.  When ready to launch the web server, run this command from the same webServer folder
-    *  node index.js
+    *  node index.js  
+If you want to change the port to 3001, you can run the command
+    *  set PORT=3001  
+before calling "node index.js"
+
+If you want to prevent others from modifying the scoreboard, you can set a password
+    *  set PASSWORD=xyz  
+before calling "node index.js"
+![password](./images/password.png)
 
 You should be able to view the page by going to [localhost:3000](localhost:3000) in your web browser.
 
