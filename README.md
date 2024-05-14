@@ -64,7 +64,7 @@ On a viewer, you can press "PageUp" to toggle between the full scoreboard and th
 
 Following images taken from [tatinui](https://www.titanui.com/49580-xbox-one-controller-buttons-psd/)
 
-If you connect an Xbox controller to your computer, you can use these buttons 
+If you connect an Xbox controller to your computer, you can use these buttons   
 ![A](./images/xbox_a.png) to start/stop the game clock.  
 ![B](./images/xbox_b.png) to reset the shot clock.  
 ![X](./images/xbox_x.png) to reset the shot clock to the second value.  
@@ -188,13 +188,16 @@ Here's the recipe for Windows but it is quite similar for other OSes. You don't 
  
 6.  When ready to launch the web server, run this command from the same webServer folder
     *  node index.js  
-If you want to change the port to 3001, you can run the command
+You can run multiple instances of the web server on the same machine. But each instance needs a different port.
+If you want to change the port of an instance to 3001, you can run the command
     *  set PORT=3001  
-before calling "node index.js"
-
+before calling "node index.js"  
 If you want to prevent others from modifying the scoreboard, you can set a password
     *  set PASSWORD=xyz  
-before calling "node index.js"
+before calling "node index.js"  
+![port and password](./images/port_and_password.png)
+
+
 ![password](./images/password.png)
 
 You should be able to view the page by going to [localhost:3000](localhost:3000) in your web browser.
