@@ -7,7 +7,7 @@ function update(obj, element) {
 
 function receive(socket, key, element) {
 	socket.on(key, function (msg) {
-		console.log(key + msg);
+		//console.log(key + msg);
 		var obj = JSON.parse(msg)
 		if (key === 'messages') {
 			if (messages.length > 0) {

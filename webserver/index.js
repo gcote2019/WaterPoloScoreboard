@@ -46,14 +46,14 @@ for (i = 1; i <= 3; i++) {
 	names.push('rightPenaltyTime' + i.toString());
 }
 
-console.log(password)
-if (password == "") {
-	console.log("empty")
-}
+//console.log(password)
+//if (password == "") {
+//	console.log("empty")
+//}
 
 let hash = crypto.createHash('sha256').update(password).digest('hex')
 hash = hash.toUpperCase();
-console.log(hash)
+//console.log(hash)
 
 
 // the last message for each key

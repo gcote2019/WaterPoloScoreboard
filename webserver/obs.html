@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <title>Game update</title>
+<head>
+<style>
+
+.container {  
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(1, 1fr); 
+  gap: 2px 10px;
+  grid-auto-flow: row;
+}
+
+.item_name {
+  text-align: center;
+  font-size: 2.5em; /* 40px/16=2.5em */
+}
+
+.item_name_right {
+  text-align: right;
+  font-size: 2.5em; /* 40px/16=2.5em */
+}
+
+.item_name_left {
+  text-align: left;
+  font-size: 2.5em; /* 40px/16=2.5em */
+}
+</style>
+<script type = "text/javascript" src="/socket.io/socket.io.js"></script>
+<script type = "text/javascript" src="/scripts/functions.js"></script>
+
+</head>
+<body>
+
+    <div class="container" >
+        <span class="item_name" id="leftName">Home</span>
+        <span class="item_name_left" id="leftScore">0</span>
+        <span class="item_name" id="gameClock">8:00</span>
+        <span class="item_name" id="period">1</span>
+        <span class="item_name" id="rightName">Guest</span>
+        <span class="item_name_left" id="rightScore">0</span>
+        <span class="item_name" ></span>
+        <span class="item_name" ></span>
+        <span class="item_name" ></span>
+        <span class="item_name" ></span>
+        <span class="item_name" ></span>
+        <span class="item_name" ></span>
+    </div>
+
+  <script>do_scoreboard()</script>
+  </body>
+</html>
