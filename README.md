@@ -227,13 +227,16 @@ Once the web server is running, you can launch a second web server with this com
 If the port used by the first web server is 3000, this server will use port + 1, i.e. 3001
 You can view the new page by visiting the page http://ip_address:3001, You can test on the same computer by opening the page localhost:3001 in your browser.
 In OBS, add a source to the scene
-![Add a source](./images/obs3.png)
+![Add a source](./images/obs3.png)  
 Select Browser and give it a name
-![Add a source](./images/obs4.png)
-![Add a source](./images/obs5.png)
+![Add a source](./images/obs4.png)  
+![Add a source](./images/obs5.png)  
 You can change the colour of the text. By default, it is black.
 Once done, you can position the text
-![Add a source](./images/obs7.png)
+![Add a source](./images/obs7.png)  
+and you get something like this
+![Add a source](./images/obs8.png)  
+
 
 
 
