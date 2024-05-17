@@ -236,6 +236,7 @@ Once done, you can position the text
 ![Add a source](./images/obs7.png)  
 and you get something like this
 ![Add a source](./images/obs8.png)  
+If the text is not visible, you may have to click on the transition button. 
 
 
 
