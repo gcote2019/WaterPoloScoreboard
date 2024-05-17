@@ -4,6 +4,10 @@ This application is used for keeping track of the remaining time and the scoring
 
 The application can be started on other devices in view mode. The scoreboard can also be viewed in a web page.
 
+It can be used to provide the score during streaming with OBS  
+![streaming](./images/obs2.png)
+Image from [radio-canada](https://images.radio-canada.ca/q_auto,w_1250/v1/ici-info/sports/16x9/water-polo-mondiaux-canada-france.png)
+
 The application runs on Windows and Android. A web-based version is also available.
 
 A minimal game setup would be the main computer running the application and a second computer running the application in view mode. With two laptops and a large screen attached to the second laptop, spectators can thus view the scoreboard.
@@ -182,15 +186,16 @@ Here's the recipe for Windows but it is quite similar for other OSes. You don't 
 ![download code](./images/github_1.png)
 4. Once extracted, go to the webServer subfolder.
 5. In a command prompt in the webServer subfolder
-   * run these 2 commands *once*
+   * run these 3 commands *once*
      *  npm install express
      *  npm install socket.io
+     *  npm install socket.io-client
  
 6.  When ready to launch the web server, run this command from the same webServer folder
     *  node index.js  
 You can run multiple instances of the web server on the same machine. But each instance needs a different port.
-If you want to change the port of an instance to 3001, you can run the command
-    *  set PORT=3001  
+If you want to change the port of an instance to 3010, you can run the command
+    *  set PORT=3010  
 before calling "node index.js"  
 If you want to prevent others from modifying the scoreboard, you can set a password
     *  set PASSWORD=xyz  
@@ -215,6 +220,23 @@ If you are tech savvy, you could also set up a machine on the cloud, for instanc
 You can also use a free dynamic DNS service provider [dynu.com](https://www.dynu.com/en-US/) to get an easy to remember domain name that points to that machine.
 
 You can try scoreboard.ddnsgeek.com:3000 which is a machine on Oracle Cloud running an instance of the server. Beware that it may be in use by other users.
+
+#### Streaming with OBS
+Once the web server is running, you can launch a second web server with this command
+* node obs.js  
+If the port used by the first web server is 3000, this server will use port + 1, i.e. 3001
+You can view the new page by visiting the page http://ip_address:3001, You can test on the same computer by opening the page localhost:3001 in your browser.
+In OBS, add a source to the scene
+![Add a source](./images/obs3.png)
+Select Browser and give it a name
+![Add a source](./images/obs4.png)
+![Add a source](./images/obs5.png)
+You can change the colour of the text. By default, it is black.
+Once done, you can position the text
+![Add a source](./images/obs7.png)
+
+
+
 
 #### Remote viewer
 If the main scoreboard is running on a local machine, once again, a remote viewer can't connect to it unless you enable port forwarding for port 8368. Once the port is opened to the outside world, a viewer can connect to it by entering the WAN ip address.
