@@ -5,20 +5,34 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const io_client = require("socket.io-client");
-const port = process.env.PORT || 3000;
-const port_obs = (Number(port) + 1).toString();
+var  server = "http://localhost:3000";
+var port_obs = 3001;
 const debug = process.env.DEBUG || 0;
 
 const fs = require('fs');
 const path = require('path');
-// to be fixed later
-//import { getKeys } from './public/scripts/functions'
+
 
 function log(value, text) {
 	if (debug > 0 && (debug & value) != 0) {
 		console.log(text);
     }
 }
+
+// if you supply a json file, you can set
+// your own parameters
+if (process.argv.length > 2) {
+	var obj = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
+	log(2, obj);
+	if (obj.server != null) {
+		server = obj.server;
+	}
+
+	if (obj.port_obs != null) {
+		port_obs = obj.port_obs.toString();
+	}
+}
+
 
 let names = [
 	'leftName',
@@ -53,7 +67,6 @@ http.listen(port_obs, () => {
 });
 
 
-const server = "http://localhost:" + port;
 const socket_client = io_client.connect(server);
 
 names.forEach(function (name) {

@@ -194,14 +194,19 @@ Here's the recipe for Windows but it is quite similar for other OSes. You don't 
 6.  When ready to launch the web server, run this command from the same webServer folder
     *  node index.js  
 You can run multiple instances of the web server on the same machine. But each instance needs a different port.
-If you want to change the port of an instance to 3010, you can run the command
-    *  set PORT=3010  
-before calling "node index.js"  
-If you want to prevent others from modifying the scoreboard, you can set a password
-    *  set PASSWORD=xyz  
-before calling "node index.js"  
-![port and password](./images/port_and_password.png)
+   * Two parameters can be configured. 
+     * The port is 3000 par default but it can be modified
+     * To prevent others from modifying the scoreboard, you can also supply a password.
+*  run the command
+*  node index.js configuration.json  
+  
+where the file "configuration.json" contains
+{
+  "port":3000,
+  "password": "xyz"
+}
 
+Check out the file *index_3000.json*.
 
 ![password](./images/password.png)
 
@@ -223,8 +228,8 @@ You can try scoreboard.ddnsgeek.com:3000 which is a machine on Oracle Cloud runn
 
 #### Streaming with OBS
 Once the web server is running, you can launch a second web server with this command
-* node obs.js  
-If the port used by the first web server is 3000, this server will use port + 1, i.e. 3001
+* node obs.js another_configuration_file.json 
+By default, the OBS server listens to http://localhost:3000 and uses the port 3001
 You can view the new page by visiting the page http://ip_address:3001, You can test on the same computer by opening the page localhost:3001 in your browser.
 In OBS, add a source to the scene
 ![Add a source](./images/obs3.png)  
@@ -238,6 +243,15 @@ and you get something like this
 ![Add a source](./images/obs8.png)  
 If the text is not visible, you may have to click on the transition button. 
 
+If you provide a configuration file, you can modify which server it listens to and its own port
+* node obs.js another_configuration_file.json  
+*  
+{
+  "server": "http://localhost:3000",
+  "port_obs":3001
+}
+
+Check the file *obs_301_3001.json* for more information.
 
 
 

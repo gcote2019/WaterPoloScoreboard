@@ -4,20 +4,38 @@ const crypto = require('crypto');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-const port = process.env.PORT || 3000;
+
+var port = 3000;
 const debug = process.env.DEBUG || 0;
-const password = process.env.PASSWORD || "";
+var password = "";
 
 const fs = require('fs');
 const path = require('path');
-// to be fixed later
-//import { getKeys } from './public/scripts/functions'
+
 
 function log(value, text) {
 	if (debug > 0 && (debug & value) != 0) {
 		console.log(text);
-    }
+  }
 }
+
+// if you supply a json file, you can set
+// your own parameters
+if (process.argv.length > 2) {
+	var obj = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
+	log(2, obj);
+	if (obj.port != null) {
+		port = obj.port.toString();
+	}
+
+	if (obj.password != null) {
+		password = obj.password.toString();
+	}
+}
+
+log(2, `port:${port}`);
+log(2, `password:${password}`);
+
 
 let names = [
 	'leftName',
@@ -46,14 +64,9 @@ for (i = 1; i <= 3; i++) {
 	names.push('rightPenaltyTime' + i.toString());
 }
 
-//console.log(password)
-//if (password == "") {
-//	console.log("empty")
-//}
 
 let hash = crypto.createHash('sha256').update(password).digest('hex')
 hash = hash.toUpperCase();
-//console.log(hash)
 
 
 // the last message for each key
@@ -71,6 +84,7 @@ io.on('connection', (socket) => {
 		log(2, name);
 		socket.on(name, msg => {
 			var obj = JSON.parse(msg)
+			log(2, obj);
 			if (obj.hash == hash) {
 				log(1, name);
 				log(1, msg);
