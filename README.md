@@ -203,10 +203,13 @@ You can run multiple instances of the web server on the same machine. But each i
 where the file "configuration.json" contains
 {
   "port":3000,
-  "password": "xyz"
+  "password": "",
+  "html_file": "index.html"
 }
 
 Check out the file *index_3000.json*.
+
+Using the configuration file, you can specify the port, the password and even the html file.
 
 ![password](./images/password.png)
 
@@ -245,13 +248,15 @@ If the text is not visible, you may have to click on the transition button.
 
 If you provide a configuration file, you can modify which server it listens to and its own port
 * node obs.js another_configuration_file.json  
-*  
+  
 {
   "server": "http://localhost:3000",
-  "port_obs":3001
+  "port_obs":3001,
+  "password":"",
+  "html_file": "obs.html"
 }
 
-Check the file *obs_301_3001.json* for more information.
+Check the file *obs_3000_3001.json* for more information.
 
 
 
