@@ -4,7 +4,7 @@ This application is used for keeping track of the remaining time and the scoring
 
 The application can be started on other devices in view mode. The scoreboard can also be viewed in a web page.
 
-It can be used to provide the score during streaming with OBS  
+It can be used to provide the score during streaming with OBS (Windows version only)  
 ![streaming](./images/obs2.png)
 Image from [radio-canada](https://images.radio-canada.ca/q_auto,w_1250/v1/ici-info/sports/16x9/water-polo-mondiaux-canada-france.png)
 
