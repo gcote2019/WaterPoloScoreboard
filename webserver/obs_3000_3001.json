@@ -1,4 +1,6 @@
 {
   "server": "http://localhost:3000",
-  "port_obs":3001
+  "port_obs":3001,
+  "password":"",
+  "html_file": "obs.html"
 }

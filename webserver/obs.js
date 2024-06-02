@@ -7,6 +7,8 @@ const io = require('socket.io')(http);
 const io_client = require("socket.io-client");
 var  server = "http://localhost:3000";
 var port_obs = 3001;
+var password = "";
+var html_file = "obs.html";
 const debug = process.env.DEBUG || 0;
 
 const fs = require('fs');
@@ -31,6 +33,14 @@ if (process.argv.length > 2) {
 	if (obj.port_obs != null) {
 		port_obs = obj.port_obs.toString();
 	}
+
+	if (obj.password != null) {
+		password = obj.password.toString();
+	}
+
+	if (obj.html_file != null) {
+		html_file = obj.html_file.toString();
+	}
 }
 
 
@@ -43,13 +53,16 @@ let names = [
 	'gameClock'
 ];
 
+let hash = crypto.createHash('sha256').update(password).digest('hex')
+hash = hash.toUpperCase();
+
 // the last message for each key
 let keyValues = {};
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-	res.sendFile(__dirname + '/obs.html');
+	res.sendFile(__dirname + '/' + html_file);
 });
 
 io.on('connection', (socket) => {
@@ -71,8 +84,11 @@ const socket_client = io_client.connect(server);
 
 names.forEach(function (name) {
 	socket_client.on(name, msg => {
-		keyValues[name] = msg;
-		io.emit(name, msg);
+		var obj = JSON.parse(msg)
+		if (obj.hash == hash) {
+			keyValues[name] = msg;
+			io.emit(name, msg);
+		}
 	});
 });
 

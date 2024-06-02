@@ -8,6 +8,7 @@ const io = require('socket.io')(http);
 var port = 3000;
 const debug = process.env.DEBUG || 0;
 var password = "";
+var html_file = "index.html";
 
 const fs = require('fs');
 const path = require('path');
@@ -30,6 +31,10 @@ if (process.argv.length > 2) {
 
 	if (obj.password != null) {
 		password = obj.password.toString();
+	}
+
+	if (obj.html_file != null) {
+		html_file = obj.html_file.toString();
 	}
 }
 
@@ -75,7 +80,7 @@ let keyValues = {};
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-	res.sendFile(__dirname + '/index.html');
+	res.sendFile(__dirname + '/' + html_file);
 });
 
 io.on('connection', (socket) => {

@@ -1,4 +1,5 @@
 {
   "port":3000,
-  "password": ""
+  "password": "",
+  "html_file": "index.html"
 }
