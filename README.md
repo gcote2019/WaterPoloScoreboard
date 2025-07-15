@@ -1,19 +1,18 @@
 ## Water-polo scoreboard
 
-This application is used for keeping track of the remaining time and the scoring. It also handles the shotclock and the fouls.
+This application is designed to manage a game's scoreboard, including timekeeping, scoring, the shot clock, and team fouls.
 
-The application can be started on other devices in view mode. The scoreboard can also be viewed in a web page.
+It supports multiple platforms, including **Windows**, **Android**, and a **web-based** version. It also offers viewer functionality on additional devices and web browsers.
 
-It can be used to provide the score during streaming with OBS (Windows version only)  
+The score can be displayed during live streams using OBS.  
 ![streaming](./images/obs2.png)
 Image from [radio-canada](https://images.radio-canada.ca/q_auto,w_1250/v1/ici-info/sports/16x9/water-polo-mondiaux-canada-france.png)
 
-The application runs on Windows and Android. A web-based version is also available.
+The application runs on both Windows and Android. A web-based version is also available.
 
-A minimal game setup would be the main computer running the application and a second computer running the application in view mode. With two laptops and a large screen attached to the second laptop, spectators can thus view the scoreboard.
+A minimal game setup would include a main computer running the application and a second computer in view mode. With two laptops and a large screen connected to the second laptop, spectators can easily view the scoreboard.
 
-The Windows installer can be found in the subfolder **Windows**
-The Android version is in the **Android** folder. It is an apk file.
+The Windows installer can be found in the **Windows** subfolder. The Android version is located in the **Android** folder as an APK file.The application runs on Windows and Android. A web-based version is also available but is more limited.
 
 For testing the web version, go to [Water-polo scoreboard](https://gcote2019.github.io/WaterPoloScoreboard/)
 
