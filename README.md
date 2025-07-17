@@ -1,32 +1,39 @@
-## Water-polo scoreboard
+# Water-polo scoreboard
 
 This application is designed to manage a game's scoreboard, including timekeeping, scoring, the shot clock, and team fouls.
 
 It supports multiple platforms, including **Windows**, **Android**, and a **web-based** version. It also offers viewer functionality on additional devices and web browsers.
 
 The score can be displayed during live streams using OBS.  
-![streaming](./images/obs2.png)
+![streaming](./images/obs2.png)  
 Image from [radio-canada](https://images.radio-canada.ca/q_auto,w_1250/v1/ici-info/sports/16x9/water-polo-mondiaux-canada-france.png)
 
-The application runs on both Windows and Android. A web-based version is also available.
+## Setup Overview
+The application runs on both Windows and Android. A web-based version is also available, though more limited.
 
-A minimal game setup would include a main computer running the application and a second computer in view mode. With two laptops and a large screen connected to the second laptop, spectators can easily view the scoreboard.
+A minimal setup includes:
 
-The Windows installer can be found in the **Windows** subfolder. The Android version is located in the **Android** folder as an APK file.The application runs on Windows and Android. A web-based version is also available but is more limited.
++ One computer running the Main Scoreboard.
++ A second computer in Viewer mode connected to a large screen for spectators.
 
+## Installation
++ **Windows** installer: in the Windows subfolder.
++ **Android** APK: in the Android folder.
+  
 For testing the web version, go to [Water-polo scoreboard](https://gcote2019.github.io/WaterPoloScoreboard/)
 
-#### Limitations
-The web-based version is limited. No viewer can connect to it. It cannot update the view-only web page.
-
-The Android version is also limited. It cannot update the view-only web page but other devices can connect to it to view the scoreboard. It is better to use it as a viewer. 
-
-It is strongly recommended to use the Windows version as the main application.
+# ❗ Web Version Limitations
++ Cannot act as a viewer.
++ Cannot update the view-only web page.
 
 ### The welcome screen
 ![Welcome screen](./images/welcome.png)
 
-You have the choice between operating the scoreboard (Main Scoreboard) or launching a viewer. If you launch a viewer, you either have to select a listed server, or provide the ip address or the name of the machine running the main scoreboard.
+You can choose to:
++ Operate the Main Scoreboard
++ Launch a Viewer
+
+To connect as a viewer, select a listed server or manually enter the IP or device name of the scoreboard host.
 
 ![Detected servers](./images/detected%20servers.png)
 
@@ -36,58 +43,59 @@ You have the choice between operating the scoreboard (Main Scoreboard) or launch
 
 ![Main](./images/MainWithAnnotation.png)
 
-#### Settings
-After pressing the _Settings_ button, this dialog is shown
+## Settings
+Accessed via the **Settings** button.
 
-##### Game Settings
+#### Game Settings
 
 ![Game Settings](./images/game_settings.png)
-All configurable durations are in minutes:seconds.
-You can set the duration of a period. The maximum value is 999:59.
-You can enable the shot clock and set its duration
-You can also set the number of time outs and its duration.
-For instance, here, each team has two time outs for every two periods.
-Finally, you can set the duration of a penalty.
++ Period duration (max: 999:59)
++ Enable/disable shot clock
++ Shot clock duration
++ Timeouts per team and per period
++ Timeout duration
++ Penalty duration
 
 #### Audible Signal
 
-![Audible Signal](./images/sound_settings.png)
-A sound can be played to indicate the remaining time.
+![Audible Signal](./images/sound_settings.png)  
+A sound can be configured to alert when time is running out.
 
 #### Colour Settings
 
-![Color Settings](./images/colors_settings.png)
-Default colors can be changed.
+![Color Settings](./images/colors_settings.png)  
+You can change the default interface colors.
 
 #### Keyboard shortcuts
 
 ![Keyboard shortcuts](./images/keyboard_shortcuts.png)
-Currently, these values cannot be modified.
-On a viewer, you can press "PageUp" to toggle between the full scoreboard and the shot clock.
++ Shortcuts are currently fixed.
++ In viewer mode: press PageUp to toggle scoreboard display.
 
-Following images taken from [tatinui](https://www.titanui.com/49580-xbox-one-controller-buttons-psd/)
+(From [tatinui](https://www.titanui.com/49580-xbox-one-controller-buttons-psd/))
 
 If you connect an Xbox controller to your computer, you can use these buttons   
-![A](./images/xbox_a.png) to start/stop the game clock.  
-![B](./images/xbox_b.png) to reset the shot clock.  
-![X](./images/xbox_x.png) to reset the shot clock to the second value.  
+![A](./images/xbox_a.png)  
+   : Start/Stop game clock  
+![B](./images/xbox_b.png)   
+   : Reset shot clock  
+![X](./images/xbox_x.png)  
+   : Reset shot clock (secondary value)
 
 #### Web Server
 
 ![Web Settings](./images/web_settings.png)
-
-It is possible to update a web page to allow spectators to view the scoreboard if you have a server. See [Web Server](#how-to-set-up-the-web-server) on how to configure it. 
-Make sure that the prefix http:// or https:// is used.
-
-Game events like goals will be shown on the web page. You can optionnally provide your preferred terms.
-
++ Allows real-time updates of a web page scoreboard.
++ Configure under **Settings > Web**
++ Custom labels for events (e.g., goals)
+  
 #### Language
 
-![Language](./images/language.png)
-The display can be in english or in french.
+![Language](./images/language.png)  
+Supports **English** and **French**.
 
 ### Team names
-If you double-click on a name, you can start editing it. Press Enter to apply.
+Double-click a team name to edit. Press *Enter* to confirm.
 ![Names](./images/names.png)
 ![Names](./images/names_2.png)
 
