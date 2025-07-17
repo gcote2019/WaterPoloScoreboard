@@ -102,80 +102,81 @@ Double-click a team name to edit. Press *Enter* to confirm.
 
 ### Score
 
-Click on the G button next to a player's number when they score a goal.   
+Click the **G** button beside a player's number to log a goal:  
 ![Score](./images/score_2.png)  
 
-You can alternately click on the +1 to add a goal but it won't list the player's number.  
+Or click **+1** to add a goal without logging the player:  
 ![Score](./images/score_1.png)
 
 
 
 ### Game Clock
-Once you press "Play", the button changes   
+When active, the clock button changes:   
 ![Game Clock](./images/game_clock.png)  
 
-When the clock has less than a minute, it shows only the seconds.
-
-When the clock has less than ten seconds, it shows the decimal value.
-
++ Under 1 minute: shows only seconds
++ Under 10 seconds: shows tenths
++ At 0: loud buzzer sounds
+  
 ![Game Clock](./images/game_clock_decimal.png)
 
-When the remaining time reaches 0, a loud buzzer sound is played.
 
 #### Editing the Game Clock
-By double-clicking on the game clock, it possible to edit its value.  
+Double-click the clock to edit.  
 ![Edit Game Clock](./images/game_clock_edit.png)  
-The format has to be minutes:seconds, minutes:seconds.tenth, seconds or seconds.tenth. The maximum value is 999:59.9.
+Formats:
++ mm:ss
++ mm:ss.t
++ ss
++ss.t
+
+Max value: 999:59.9
 
 ### Shot Clock
 ![Shot Clock](./images/shot_clock.png)
 
-The shot clock starts and stops with the game clock.
-
-When the shot clock has less than ten seconds, it shows the decimal value.
-
-When the remaining time on the shot clock reaches 0, a loud buzzer sound is played.
-
-When the remaining time on the game clock is less than the time of the shot clock, the shot clock shows the same time as the game clock. It doesn't get blanked.
-
++ Syncs with game clock
++ Under 10 seconds: shows tenths
++ At 0: buzzer plays
++ If remaining game time < shot clock: shot clock mirrors game clock
++ 
 #### Editing the Shot Clock
-By double-clicking on the shot clock, it possible to edit its value.
+Double-click the shot clock to set a new value.
 
 ### Time Outs
-Time Outs Left are shown in the T.O.L sections.
-Click on the -1 button to start a timeout. The time out clock is then shown instead of the shot clock. 
+Timeouts are shown under T.O.L.
++ Click -1 to trigger a timeout
++ Shot clock is replaced by timeout clock
+  
 ![Time Outs settings](./images/main_time_outs.png)
 
-Press the Escape key to cancel the time out.
++ Press *Esc* to cancel timeout
 
 ### Fouls
 
-![Fouls](./images/fouls.png)
-Fouls are shown on each side of the scoreboard.  
-If you press on the plus button, it adds a foul to that player and a penalty is also added.  
+Fouls are tracked per player:  
 ![Penalty and foul](./images/penalty_and_foul.png)
 
-You can press on the corresponding X button to remove it.
++ Click **+** to add a foul and penalty
++ Click **X** to remove
 
 ### Cap Exchange
-It is possible to exchange players' cap number.  
-For instance, if you want to exchange cap #6 and cap #7  
+Swap two players’ cap numbers:
+
 ![Cap Exchange](./images/cap_exchange_1.png)  
-Enter 6 and 7 in the Cap Exchange area   
+1. Enter the two cap numbers:
 ![Cap Exchange](./images/cap_exchange_2.png)  
-Press on the X button to do the exchange    
+2. Press X to confirm swap    
 ![Cap Exchange](./images/cap_exchange_3.png)  
 
 ### Viewer
-(Not available in the Web version)
-If you click on a detected server or on the viewer button (after entering the proper information), you can view the scoreboard
+*(Not available in the web version)*
++ Connect via server list or IP
 ![Viewer](./images/viewer.png)
-
-You can also press the PageUp button in order to view a different layout with only the game clock and the shot clock in order to have a shot clock display.
-
++ Press PageUp to switch to shot-clock-only display
 ![Viewer](./images/viewer2.png)
 
-The viewers communicate with the server via the network. You need a connection to a local area network at least.
+Viewers require network access to the host machine..
 
 ###  How to set up the web server
 It is possible to set up a web page for anyone to see in the world.
