@@ -178,29 +178,38 @@ Swap two players’ cap numbers:
 
 Viewers require network access to the host machine..
 
-###  How to set up the web server
-It is possible to set up a web page for anyone to see in the world.
+###  Setting Up the Web Server
 
 ![web server](./images/web_server_1.png)
 ![web server](./images/web_server_2.png)
 ![web server](./images/web_server_3.png)
 
-It is a bit technical but not difficult.
-Here's the recipe for Windows but it is quite similar for other OSes. You don't need programming skills.
+#### Requirements
 
 1. Install [NodeJS](https://nodejs.org/en/download/current).
-2. Verify that it works by running the command "node -v" in a command prompt.
-3. Download the source code and _*extract*_ it in a folder.
+2. Verify with:
+   > node -v
+
+#### Installation Steps
+1. Download and **extract** the source code
 ![download code](./images/github_1.png)
-4. Once extracted, go to the webServer subfolder.
-5. In a command prompt in the webServer subfolder
-   * run these 3 commands *once*
-     *  npm install express
-     *  npm install socket.io
-     *  npm install socket.io-client
+2. Go to the *webServer* subfolder
+3. In a command prompt, run once:
+   > npm install express  
+   > npm install socket.io  
+   > npm install socket.io-client  
  
-6.  When ready to launch the web server, run this command from the same webServer folder
-    *  node index.js  
+4.  To start the server:
+    > node index.js  
+Or, to use a configuration file:
+    > node index.js configuration.json  
+**Example** *configuration.json*:
+   > {  
+   >   "port": 3000,  
+   >   "password": "",  
+   >   "html_file": "index.html"  
+   > }  
+   
 You can run multiple instances of the web server on the same machine. But each instance needs a different port.
    * Two parameters can be configured. 
      * The port is 3000 par default but it can be modified
@@ -215,20 +224,13 @@ where the file "configuration.json" contains
   "html_file": "index.html"
 }
 
-Check out the file *index_3000.json*.
+View the page in your browser:
+[localhost:3000](localhost:3000)
 
-Using the configuration file, you can specify the port, the password and even the html file.
+In the application:
+Go to **Settings > Web** and enter the same address.
 
-![password](./images/password.png)
-
-You should be able to view the page by going to [localhost:3000](localhost:3000) in your web browser.
-
-![localhost](./images/localhost.png)
-In the main scoreboard, go to Settings/Web, enter "http://localhost:3000", press Ok.
-
-If you press "Play" in the scoreboard, it should start updating in the browser too.
-
-##### Make it accessible from anywhere
+##### Make it public
 If the web server is running on a local machine, the web page isn't accessible to the outside world. It is possible to open it for everyone if you have access to the router. Configure port forwarding for port 3000. Protocol is TCP.
 
 If you are tech savvy, you could also set up a machine on the cloud, for instance, Oracle Cloud _*free*_ tier and install the web server on it. You get an ip address to connect to that machine.
