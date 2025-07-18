@@ -230,14 +230,13 @@ To allow external viewers:
 + Use a free dynamic DNS like dynu.com
 
 Test instance:
-[scoreboard.ddnsgeek.com:3000](scoreboard.ddnsgeek.com:3000) *(availability may vary)*
+http://scoreboard.ddnsgeek.com:3000 *(availability may vary)*
 
 #### Streaming with OBS
 Start an OBS-compatible web server:
   > node obs.js another_configuration_file.json 
 + Default port: 3001
 + Default server: http://localhost:3000  
-Open [localhost:3001](localhost:3001) to preview
 
 #### In OBS
 1, Add a Browser source  
