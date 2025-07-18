@@ -127,8 +127,8 @@ Double-click the clock to edit.
 Formats:
 + mm:ss
 + mm:ss.t
-+ ss
-+ss.t
++ ss  
++ ss.t
 
 Max value: 999:59.9
 
@@ -139,7 +139,7 @@ Max value: 999:59.9
 + Under 10 seconds: shows tenths
 + At 0: buzzer plays
 + If remaining game time < shot clock: shot clock mirrors game clock
-+ 
+
 #### Editing the Shot Clock
 Double-click the shot clock to set a new value.
 
