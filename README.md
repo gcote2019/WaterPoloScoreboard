@@ -231,47 +231,44 @@ In the application:
 Go to **Settings > Web** and enter the same address.
 
 ##### Make it public
-If the web server is running on a local machine, the web page isn't accessible to the outside world. It is possible to open it for everyone if you have access to the router. Configure port forwarding for port 3000. Protocol is TCP.
+To allow external viewers:
++ Configure your router to forward port 3000 (TCP)
++ Optional: set up a cloud server (e.g., Oracle Cloud Free Tier)
++ Use a free dynamic DNS like dynu.com
 
-If you are tech savvy, you could also set up a machine on the cloud, for instance, Oracle Cloud _*free*_ tier and install the web server on it. You get an ip address to connect to that machine.
-
-You can also use a free dynamic DNS service provider [dynu.com](https://www.dynu.com/en-US/) to get an easy to remember domain name that points to that machine.
-
-You can try scoreboard.ddnsgeek.com:3000 which is a machine on Oracle Cloud running an instance of the server. Beware that it may be in use by other users.
+Test instance:
+[scoreboard.ddnsgeek.com:3000](scoreboard.ddnsgeek.com:3000) *(availability may vary)*
 
 #### Streaming with OBS
-Once the web server is running, you can launch a second web server with this command
-* node obs.js another_configuration_file.json 
-By default, the OBS server listens to http://localhost:3000 and uses the port 3001
-You can view the new page by visiting the page http://ip_address:3001, You can test on the same computer by opening the page localhost:3001 in your browser.
-In OBS, add a source to the scene
-![Add a source](./images/obs3.png)  
-Select Browser and give it a name
-![Add a source](./images/obs4.png)  
-![Add a source](./images/obs5.png)  
-You can change the colour of the text. By default, it is black.
-Once done, you can position the text
-![Add a source](./images/obs7.png)  
-and you get something like this
-![Add a source](./images/obs8.png)  
-If the text is not visible, you may have to click on the transition button. 
+Start an OBS-compatible web server:
+  > node obs.js another_configuration_file.json 
++ Default port: 3001
++ Default server: http://localhost:3000
+Open [localhost:3001](localhost:3001) to preview
 
-If you provide a configuration file, you can modify which server it listens to and its own port
-* node obs.js another_configuration_file.json  
-  
-{
-  "server": "http://localhost:3000",
-  "port_obs":3001,
-  "password":"",
-  "html_file": "obs.html"
+#### In OBS
+1, Add a Browser source  
+![Add a source](./images/obs3.png)  
+2. Select Browser  
+![Add a source](./images/obs4.png)  
+3. Customize the appearance (text color, size, etc.)
+![Add a source](./images/obs5.png)  
+![Add a source](./images/obs7.png)  
+![Add a source](./images/obs8.png)  
+
+**Tip**: If text isn’t visible, click the **transition** button.
+
+Tip: If text isn’t visible, click the transition button.
+
+#### Custom OBS Config
+Example another_configuration_file.json:
+
+  > {
+  >   "server": "http://localhost:3000",
+  >   "port_obs": 3001,
+  >   "password": "",
+  >   "html_file": "obs.html"
 }
 
-Check the file *obs_3000_3001.json* for more information.
-
-
-
-
-#### Remote viewer
-If the main scoreboard is running on a local machine, once again, a remote viewer can't connect to it unless you enable port forwarding for port 8368. Once the port is opened to the outside world, a viewer can connect to it by entering the WAN ip address.
-
+See *obs_3000_3001.json* for additional config options.
 
