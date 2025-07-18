@@ -200,9 +200,11 @@ Viewers require network access to the host machine..
    > npm install socket.io-client  
  
 4.  To start the server:
-    > node index.js  
-Or, to use a configuration file:
+    > node index.js    
+
+Or, to use a configuration file:  
     > node index.js configuration.json  
+    
 **Example** *configuration.json*:
    > {  
    >   "port": 3000,  
@@ -210,15 +212,7 @@ Or, to use a configuration file:
    >   "html_file": "index.html"  
    > }  
    
-where the file "configuration.json" contains
-  > {
-  >   "port":3000,
-  >   "password": "",
-  >   "html_file": "index.html"
-  > }
-
-View the page in your browser:  
-[localhost:3000](localhost:3000)
+View the page in your browser: http://localhost:3000
 
 In the application:
 Go to **Settings > Web** and enter the same address.
@@ -236,7 +230,7 @@ http://scoreboard.ddnsgeek.com:3000 *(availability may vary)*
 Start an OBS-compatible web server:
   > node obs.js another_configuration_file.json 
 + Default port: 3001
-+ Default server: http://localhost:3000  
++ Default server: http://localhost:3001  
 
 #### In OBS
 1, Add a Browser source  
