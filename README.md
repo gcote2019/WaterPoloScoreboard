@@ -20,7 +20,7 @@ A minimal setup includes:
 + **Windows** installer: in the Windows subfolder.
 + **Android** APK: in the Android folder.
   
-For testing the web version, go to [Water-polo scoreboard](https://gcote2019.github.io/WaterPoloScoreboard/)
+For testing the web version, go to [Water-polo scoreboard](https://gcote2019.github.io/WaterPoloScoreboard/webclient)
 
 # ❗ Web Version Limitations
 + Cannot act as a viewer.
